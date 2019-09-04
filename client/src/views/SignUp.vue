@@ -52,7 +52,7 @@
                 v-model="$v.form.email.$model"
                 placeholder="Enter EmailId"
               />
-              <div class="pl-2" v-if="$v.form.email.$dirty && $v.form.userName.$invalid">
+              <div class="pl-2" v-if="$v.form.email.$dirty && $v.form.email.$invalid">
                 <small v-if="!$v.form.email.email" class="red">Invalid EmailID</small>
                 <small v-if="!$v.form.email.required" class="red">EmailID is required</small>
             </div>
@@ -153,24 +153,6 @@ export default {
           console.log(error);
         }
       }
-    }
-  },
-  watch: {
-    "form.firstname": function() {
-      console.log(this.$v.form.firstname);
-      this.$v.form.firstname.$touch();
-    },
-    "form.lastname": function() {
-      this.$v.form.lastname.$touch();
-    },
-    "form.email": function() {
-      this.$v.form.email.$touch();
-    },
-    "form.contact": function() {
-      this.$v.form.contact.$touch();
-    },
-    "form.password": function() {
-      this.$v.form.password.$touch();
     }
   }
 };

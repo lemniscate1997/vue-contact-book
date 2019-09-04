@@ -15,7 +15,6 @@ class ContactService {
     }
 
     async updateContact(contectId, contact) {
-        console.log(contectId);
         return await axios.put(`${this.url}/update/${contectId}`, contact, { withCredentials: true }).then(result => result.data);
     }
 
