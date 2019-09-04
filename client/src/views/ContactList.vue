@@ -151,7 +151,7 @@ export default {
   watch: {
     search: function() {
       this.contacts = this.all.filter(row =>
-        row.firstname.toLowerCase().includes(this.search.toLowerCase())
+        `${row.firstname.toLowerCase()} ${row.lastname.toLowerCase()}`.includes(this.search.toLowerCase())
       );
     }
   }

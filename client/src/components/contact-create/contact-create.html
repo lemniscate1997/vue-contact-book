@@ -21,7 +21,7 @@
         <div class="form-group">
             <label class="pl-1" for="email">EmailId</label>
             <input type="email" class="form-control" v-model="$v.form.email.$model" placeholder="Enter EmailId" />
-            <div class="pl-2" v-if="$v.form.email.$dirty && $v.form.userName.$invalid">
+            <div class="pl-2" v-if="$v.form.email.$dirty && $v.form.email.$invalid">
                 <small v-if="!$v.form.email.email" class="red">Invalid EmailID</small>
                 <small v-if="!$v.form.email.required" class="red">EmailID is required</small>
             </div>

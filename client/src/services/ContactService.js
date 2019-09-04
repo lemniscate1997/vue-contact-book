@@ -15,7 +15,8 @@ class ContactService {
     }
 
     async updateContact(contectId, contact) {
-        return await axios.post(`${this.url}/update/${contectId}`, contact, { withCredentials: true }).then(result => result.data);
+        console.log(contectId);
+        return await axios.put(`${this.url}/update/${contectId}`, contact, { withCredentials: true }).then(result => result.data);
     }
 
     async removeContact(contectId) {

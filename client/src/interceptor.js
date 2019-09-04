@@ -8,7 +8,7 @@ export default function() {
 
     axios.interceptors.response.use((response) => {
         if (response.status == 404 && response.data.message === 'Unauthorized request') {
-            router.push('/');
+            localStorage.clear();
         }
         return response;
     }, (error) => {

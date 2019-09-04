@@ -50,9 +50,8 @@ export default {
             } else {
                 try {
                     console.log(this.form);
-                    if (this.viewData !== null) {
-                        this.form.contectid = undefined
-                        let result = await contactService.createContact(this.viewData.contectid, this.form);
+                    if (this.viewData.contact !== null) {
+                        let result = await contactService.updateContact(this.viewData.contact.contactid, this.form);
                         this.$emit('update', this.form);
                     } else {
                         let result = await contactService.createContact(this.form);
