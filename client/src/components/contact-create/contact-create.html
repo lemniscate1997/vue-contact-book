@@ -1,0 +1,51 @@
+<section class="contact-create">
+    <form @submit.prevent="onSubmit">
+        <div class="form-group">
+            <label class="pl-1" for="firstname">FirstName</label>
+            <input type="text" class="form-control" v-model="$v.form.firstname.$model" placeholder="Enter Firstname" />
+            <div class="pl-2" v-if="$v.form.firstname.$error">
+                <small v-if="!$v.form.firstname.required" class="red">FirstName Required</small>
+                <small v-if="!$v.form.firstname.maxLength" class="red">FirstName must be 20 characters max</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="pl-1" for="lastname">LastName</label>
+            <input type="text" class="form-control" v-model="$v.form.lastname.$model" placeholder="Enter Lastname" />
+            <div class="pl-2" v-if="$v.form.lastname.$error">
+                <small v-if="!$v.form.lastname.required" class="red">LastName Required</small>
+                <small v-if="!$v.form.lastname.maxLength" class="red">LastName must be 20 characters max</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="pl-1" for="email">EmailId</label>
+            <input type="email" class="form-control" v-model="$v.form.email.$model" placeholder="Enter EmailId" />
+            <div class="pl-2" v-if="$v.form.email.$dirty && $v.form.userName.$invalid">
+                <small v-if="!$v.form.email.email" class="red">Invalid EmailID</small>
+                <small v-if="!$v.form.email.required" class="red">EmailID is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="pl-1" for="contact">Contact No.</label>
+            <input type="text" class="form-control" v-model="$v.form.contact.$model" placeholder="Enter Contact No." />
+            <div class="pl-2" v-if="$v.form.contact.$error">
+                <small v-if="!$v.form.contact.required" class="red">Contact Number is Required</small>
+                <small v-if="!$v.form.contact.maxLength || !$v.form.contact.minLength" class="red">Invalid Contact Number</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="pl-1" for="type">Contact Type</label>
+            <select class="form-control" v-model="form.type">
+                <option value="Home">Home</option>
+                <option value="Work">Work</option>
+            </select>
+        </div>
+        <hr>
+        <div class="form-group">
+            <button type="submit" :disabled="$v.form.$invalid" class="btn btn-dark" value="Create">{{title}}</button>
+        </div>
+    </form>
+</section>
